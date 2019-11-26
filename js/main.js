@@ -1,11 +1,11 @@
 const vietos = document.querySelector('ul');
-const button1 = document.querySelector('.rodyti');
+const button1 = document.querySelector('#rodyti');
 button1.addEventListener('click', rodyti)
 
-const button2 = document.querySelector('.maisyti');
+const button2 = document.querySelector('#maisyti');
 button2.addEventListener('click', maisymas)
 
-let foto = ['picture1', 'picture2', 'picture3', 'picture4', 'picture5', 'picture6', 'picture7', 'picture8', 'picture9', 'picture10']
+let foto = ['picture1', 'picture2', 'picture3', 'picture4', 'picture5', 'picture6', 'picture7', 'picture8', 'picture9', 'picture10',]
 
 
 function rodyti() {
@@ -19,6 +19,17 @@ function rodyti() {
         vieta.appendChild(fotos);
     }
 }
+function displayNone() {
+    var x = document.getElementById('rodyti');
+    if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+
+          x.style.display = "none";
+      }
+       
+ }
+
 
 function maisymas() {
     let naujas = foto
@@ -29,19 +40,25 @@ function maisymas() {
      const mix = document.querySelectorAll('img')
                  for (let i = 0; i < naujas.length; i++) {
                     mix[i].src='img/'+naujas[i]+'.jpg'}
-     }
      
-const defaultImage = "img/default.jpg";
+     
+const defaultImage = document.querySelectorAll('img');
+     for (var i=0; i < defaultImage.length; i++){
+             defaultImage[i].ondblclick = function (event){
 
-     keisti = document.querySelectorAll("img")
+            var target = event.target 
 
-             keisti.ondblclick = function (e) {
-                    e.target.src = defaultImage;
-        }   
+            target.src = 'img/default.jpg';
 
+          }
 
+        }
 
-console.log(keisti)
+     }
+
+            
+        
+console.log(displayNone)
 
 
 
